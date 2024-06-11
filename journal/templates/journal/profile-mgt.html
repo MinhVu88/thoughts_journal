@@ -1,0 +1,40 @@
+{% extends 'journal/navbar.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<body>
+	<div class="container form-layout bg-white shadow-md p-4 mt-5">
+		<a href="{% url 'view-thoughts' %}">Back</a>
+    <br><br>
+		<form 
+			method="post" 
+			autocomplete="off" 
+			enctype="multipart/form-data"
+		>
+			{% csrf_token %}
+			{{ form | crispy }}
+			<br>
+			<button 
+				type="submit"
+				class="btn btn-secondary btn-sm w-100 btn-block p-2"
+			>
+				&nbsp; Update
+			</button>
+			<hr>
+			{{ pic | crispy }}
+			<button 
+				type="submit"
+				class="btn btn-secondary btn-sm w-100 btn-block p-2"
+			>
+				&nbsp; Upload
+			</button>
+		</form>
+    <br>
+    <a 
+			class="text-danger-emphasis" 
+			href="{% url 'delete-account' %}"
+		>
+			Delete account
+		</a>
+	</div>
+</body>
+{% endblock content %}

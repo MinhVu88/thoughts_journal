@@ -1,0 +1,16 @@
+{% extends 'journal/navbar.html' %}
+{% block content %}
+<body>
+  {% for thought in thoughts %}
+	  <div class="container form-layout bg-white shadow-md p-4 mt-5">
+      <ul>
+        <li>Title: {{ thought.title }}</li>
+        <li>Content: {{ thought.content }}</li>
+        <li>Posted at: {{ thought.date_posted }}</li>
+        <a href="{% url 'update-thought' thought.id %}">Update</a> |
+        <a href="{% url 'delete-thought' thought.id %}">Delete</a>
+      </ul>
+    </div>
+  {% endfor %}
+</body>
+{% endblock content %}

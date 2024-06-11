@@ -1,0 +1,11 @@
+{% extends 'journal/navbar.html' %}
+{% block content %}
+<body>
+	<div class="container form-layout bg-white shadow-md p-4 mt-5">
+		{% if request.user.is_authenticated %}
+			<h3>Welcome, {{ user.get_username }}</h3>
+			<img src="{{ profile.pic.url }}" width="90" height="100">
+		{% endif %}
+	</div>
+</body>
+{% endblock content %}
