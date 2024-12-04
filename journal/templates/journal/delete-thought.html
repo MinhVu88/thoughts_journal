@@ -1,0 +1,19 @@
+{% extends 'journal/navbar.html' %}
+{% block content %}
+<body>
+	<div class="container form-layout bg-white shadow-md p-4 mt-5">
+		<a href="{% url 'view-thoughts' %}">Back</a>
+		<br><br>
+		<form action="" method="post" autocomplete="off">
+			{% csrf_token %}
+			<br>
+			<button 
+				type="submit"
+				class="btn btn-secondary btn-sm w-100 btn-block p-2"
+			>
+				&nbsp; Delete thought
+			</button>
+		</form>
+	</div>
+</body>
+{% endblock content %}
